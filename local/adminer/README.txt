@@ -32,3 +32,7 @@ changes in 2012060301
 
 changes in 2012091801
 - added support for MSSQL 2008 R2
+
+changes in 2013061301
+- it is based on adminer-3.7.1-dev
+    look here: https://github.com/vrana/adminer/blob/master/changes.txt
