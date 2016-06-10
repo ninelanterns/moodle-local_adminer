@@ -56,3 +56,9 @@ changes in 2014111800
 changes in 2015052700
 - it is based on adminer-4.2.1
     for more infos see here: https://github.com/vrana/adminer/blob/master/changes.txt
+
+changes in 2016061000
+- compatible with moodle_30 and moodle_31
+- compatible with php7
+- it is based on adminer-4.2.4
+    for more infos see here: https://github.com/vrana/adminer/blob/master/changes.txt
