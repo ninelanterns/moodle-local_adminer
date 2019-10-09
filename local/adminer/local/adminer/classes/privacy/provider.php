@@ -15,18 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Run the code checker from the web.
  *
  * @package    local
  * @subpackage adminer
- * @copyright  2011 Andreas Grabs
+ * @copyright  Andreas Grabs
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+namespace local_adminer\privacy;
 
-$plugin->version  = 2019100900;
-$plugin->release = '3.8 (2019100900)';
-$plugin->requires = 2019051100;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->component = 'local_adminer';
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * The local plugin adminer does not store any data.
+ *
+ * @copyright  2018 Andreas Grabs <moodle@grabs-edv.de>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

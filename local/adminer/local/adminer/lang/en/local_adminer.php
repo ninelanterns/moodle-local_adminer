@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Language strings
  *
  * @package    local
  * @subpackage adminer
@@ -23,10 +23,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
 
-$plugin->version  = 2019100900;
-$plugin->release = '3.8 (2019100900)';
-$plugin->requires = 2019051100;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->component = 'local_adminer';
+$string['adminer:useadminer'] = 'Use Adminer';
+$string['config_startwithdb'] = 'Start adminer with current database';
+$string['launchadminer'] = 'Launch Adminer';
+$string['pagenotusedinmoodle'] = 'This page can not be used in Moodle';
+$string['pluginname'] = 'Moodle Adminer';
+$string['privacy:metadata'] = 'The Adminer plugin does not store any personal data.';

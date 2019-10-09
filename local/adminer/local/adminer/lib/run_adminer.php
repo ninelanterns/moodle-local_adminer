@@ -14,19 +14,27 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Version details.
- *
- * @package    local
- * @subpackage adminer
- * @copyright  2011 Andreas Grabs
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+require_once('../../../config.php');
+require_login();
+require_capability('local/adminer:useadminer', context_system::instance());
 
-defined('MOODLE_INTERNAL') || die;
+function adminer_object() {
+    // required to run any plugin
+    require_once("plugins/plugin.php");
 
-$plugin->version  = 2019100900;
-$plugin->release = '3.8 (2019100900)';
-$plugin->requires = 2019051100;
-$plugin->maturity = MATURITY_STABLE;
-$plugin->component = 'local_adminer';
+    // autoloader
+    foreach (glob("plugins/*.php") as $filename) {
+        require_once("./$filename");
+    }
+
+    $plugins = array(
+        // specify enabled plugins here
+        new AdminerFrames(true),
+        new AdminerMdlLogin(),
+        new AdminerMdlDesigns(),
+    );
+
+    return new AdminerPlugin($plugins);
+}
+// include original Adminer or Adminer Editor
+require_once("adminer.php");
