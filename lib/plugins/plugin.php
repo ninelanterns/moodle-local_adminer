@@ -114,7 +114,17 @@ class AdminerPlugin extends Adminer {
 
 	function databases($flush = true) {
 		$args = func_get_args();
-		return $this->_applyPlugin(__FUNCTION__, $args);
+
+		// Begin - KINEO Core Code Modification
+		// RPLHAS-2387
+		// Only return the Site's own database
+		require_once('../../../config.php');
+		global $CFG;
+		$db = $this->_applyPlugin(__FUNCTION__, $args);
+		$key = array_search($CFG->dbname, $db); 
+
+		return [$db[$key]];
+		// End KINEO CCM
 	}
 
 	function queryTimeout() {
